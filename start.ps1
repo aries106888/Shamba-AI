@@ -19,10 +19,13 @@ Start-Sleep -Seconds 2
 
 # ── 2. Go Geo Microservice (port 5001) ──────────────────────────
 Write-Host "▶  Starting Go Geo Microservice on :5001 ..." -ForegroundColor Cyan
+if (Test-Path "C:\Program Files\Go\bin") {
+  $env:Path = "C:\Program Files\Go\bin;" + $env:Path
+}
 $goAvailable = Get-Command go -ErrorAction SilentlyContinue
 if ($goAvailable) {
   Start-Process powershell -ArgumentList "-NoExit", "-Command", `
-    "cd '$PSScriptRoot\backend-go'; go mod tidy; Write-Host '🗺️  Go Geo Service' -ForegroundColor Yellow; go run main.go" `
+    "`$env:Path = 'C:\Program Files\Go\bin;' + `$env:Path; cd '$PSScriptRoot\backend-go'; Write-Host '🗺️  Go Geo Service' -ForegroundColor Yellow; go run main.go" `
     -WindowStyle Normal
   Start-Sleep -Seconds 1
 } else {
