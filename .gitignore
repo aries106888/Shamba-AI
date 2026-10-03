@@ -1,0 +1,49 @@
+# ─── Node / npm ───────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# ─── Environment secrets (NEVER commit) ───────────────────────────
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# ─── SQLite database (generated at runtime) ───────────────────────
+backend/db/shambapoint.db
+backend/db/shambapoint.db-shm
+backend/db/shambapoint.db-wal
+*.db
+*.db-shm
+*.db-wal
+
+# ─── Build outputs ────────────────────────────────────────────────
+frontend/dist/
+frontend/.vite/
+build/
+
+# ─── OS files ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDE ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+
+# ─── Logs ─────────────────────────────────────────────────────────
+logs/
+*.log
+
+# ─── Go build artifacts ───────────────────────────────────────────
+backend-go/shambapoint-geo
+backend-go/*.exe
+
+# ─── Test coverage ────────────────────────────────────────────────
+coverage/

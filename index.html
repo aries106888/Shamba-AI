@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShambaPoint Climate — AI-Powered Climate-Resilient Agriculture for Kenya</title>
+  <meta name="description" content="ShambaPoint Climate uses AI micro-climate forecasts, smart irrigation, yield matching and M-Pesa logistics to protect Kenya's farmers from drought and connect them to buyers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ NAV ═══ -->
+<nav id="main-nav" role="navigation" aria-label="Main Navigation">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="ShambaPoint Climate home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="18" cy="18" r="17" stroke="#A8D65C" stroke-width="1.5"/>
+          <path d="M10 26 C10 20 14 16 18 14 C22 12 26 13 28 16" stroke="#A8D65C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 14 L18 26" stroke="#A8D65C" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="18" cy="14" r="2.5" fill="#A8D65C"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">ShambaPoint</span>
+        <span class="logo-tag">Climate</span>
+      </div>
+    </a>
+
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="#buyers">Buyers</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" id="lang-en" aria-pressed="true">EN</button>
+        <span class="lang-divider">
+          <span class="ke-flag-mini">🇰🇪</span>
+        </span>
+        <button class="lang-btn" id="lang-sw" aria-pressed="false">Kiswahili</button>
+      </div>
+      <a href="#cta" class="btn-primary nav-cta">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO ═══ -->
+<section id="hero" class="hero-section" aria-labelledby="hero-headline">
+  <div class="hero-bg">
+    <div class="cloud cloud-1" aria-hidden="true"></div>
+    <div class="cloud cloud-2" aria-hidden="true"></div>
+    <div class="cloud cloud-3" aria-hidden="true"></div>
+    <div class="cloud cloud-4" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge" aria-label="Live product indicator">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        AI-Powered · Kenya-Built · Climate-Ready
+      </div>
+      <h1 id="hero-headline" class="hero-headline">
+        Weather will change.<br/>
+        <em>Your harvest</em><br/>
+        doesn't have to.
+      </h1>
+      <p class="hero-sub">
+        ShambaPoint Climate gives Kenya's farmers real-time micro-climate intelligence, smart irrigation guidance, and direct connections to verified B2B buyers — paid instantly via M-Pesa.
+      </p>
+      <div class="hero-btns">
+        <a href="#solutions" class="btn-primary btn-lg" id="hero-explore-btn">Explore the Platform <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <button class="btn-secondary btn-lg" id="hero-watch-btn" aria-label="Watch the story video">
+          <span class="play-btn" aria-hidden="true"><svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M1 1L11 7L1 13V1Z"/></svg></span>
+          Watch the Story
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-map-zone" aria-label="Interactive Kenya climate map">
+      <div class="map-container" id="kenya-map-container">
+        <canvas id="kenya-map-canvas" aria-label="Kenya county map with climate risk overlay"></canvas>
+        <div class="map-legend" aria-label="Risk level legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#A8D65C"></span>Low risk</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#E8A33D"></span>Medium risk</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#D9534F"></span>High risk</div>
+        </div>
+      </div>
+
+      <!-- Live Farm Insights floating card -->
+      <div class="insights-card glass-card" aria-label="Live Farm Insights panel" role="complementary">
+        <div class="insights-header">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span>Live Farm Insights</span>
+          <a href="#technology" class="view-all">View All →</a>
+        </div>
+        <div class="insight-row">
+          <span class="insight-label">Soil Moisture</span>
+          <div class="insight-bar-wrap">
+            <div class="insight-bar" style="--pct:72%; --clr:#A8D65C"></div>
+          </div>
+          <span class="insight-val" style="color:#A8D65C">72%</span>
+        </div>
+        <div class="insight-row">
+          <span class="insight-label">7-day Rain Chance</span>
+          <div class="insight-bar-wrap">
+            <div class="insight-bar" style="--pct:38%; --clr:#60a5fa"></div>
+          </div>
+          <span class="insight-val" style="color:#60a5fa">38%</span>
+        </div>
+        <div class="insight-row">
+          <span class="insight-label">Dry-Spell Risk</span>
+          <div class="insight-bar-wrap">
+            <div class="insight-bar" style="--pct:54%; --clr:#E8A33D"></div>
+          </div>
+          <span class="insight-val" style="color:#E8A33D">Moderate</span>
+        </div>
+        <div class="insight-gauge-wrap">
+          <canvas id="risk-gauge" width="120" height="70" aria-label="Risk score gauge showing 54"></canvas>
+          <p class="gauge-label">Risk Score <strong>54/100</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ IMPACT BAR ═══ -->
+<section id="impact" class="impact-section" aria-labelledby="impact-heading">
+  <h2 id="impact-heading" class="sr-only">Platform Impact</h2>
+  <div class="impact-bar">
+    <div class="impact-tile" data-count="12400" data-suffix="+" aria-label="12,400 plus farmers enrolled sample data">
+      <div class="impact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="impact-num" id="count-farmers">12,400+</div>
+      <div class="impact-label">Farmers Enrolled</div>
+      <div class="impact-note">sample · pilot data</div>
+    </div>
+    <div class="impact-tile" data-count="340" data-suffix="K acres" aria-label="340K acres monitored sample data">
+      <div class="impact-icon" style="--ic:#E8A33D" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="impact-num" id="count-acres">340K</div>
+      <div class="impact-label">Acres Monitored</div>
+      <div class="impact-note">sample · pilot data</div>
+    </div>
+    <div class="impact-tile" data-count="28" data-suffix="%" aria-label="28 percent average yield improvement sample data">
+      <div class="impact-icon" style="--ic:#A8D65C" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="impact-num" id="count-yield">28%</div>
+      <div class="impact-label">Avg. Yield Improvement</div>
+      <div class="impact-note">sample · modelled estimate</div>
+    </div>
+    <div class="impact-tile" data-count="35" data-suffix="%" aria-label="35 percent water saved sample data">
+      <div class="impact-icon" style="--ic:#60a5fa" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 10 5 15a7 7 0 0014 0C19 10 12 2 12 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="impact-num" id="count-water">35%</div>
+      <div class="impact-label">Water Saved</div>
+      <div class="impact-note">sample · modelled estimate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ HOW IT WORKS ═══════ -->
+<section id="solutions" class="solutions-section reveal-section" aria-labelledby="solutions-heading">
+  <div class="section-label">WHAT WE DO</div>
+  <div class="solutions-header">
+    <h2 id="solutions-heading" class="section-title">Intelligent Solutions<br/>for Every Farm</h2>
+    <p class="section-subtitle">From soil to sky, ShambaPoint provides end-to-end intelligence that helps farmers make smarter decisions and achieve sustainable growth across Kenya's diverse agro-climatic zones.</p>
+  </div>
+
+  <div class="solution-cards" role="list">
+    <article class="sol-card glass-card reveal-child" role="listitem" aria-labelledby="sol1-title">
+      <div class="sol-badge" style="--badge:#A8D65C22; --icon:#A8D65C" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <img src="C:\Users\Kevin\.gemini\antigravity-ide\brain\cd981c36-462b-4290-a949-a32abad5f912\kericho_tea_hero_1791055704805.jpg" alt="Kericho tea terraces aerial view" class="sol-img" loading="lazy"/>
+      <h3 id="sol1-title" class="sol-title">Micro-Climate Forecasts</h3>
+      <p class="sol-desc">Daily dry-spell risk scores and 7-day hyper-local rain forecasts for individual farms — not just counties. Know your field's forecast, not just the region's.</p>
+      <a href="#technology" class="sol-link" aria-label="Learn more about Micro-Climate Forecasts">Learn more →</a>
+    </article>
+
+    <article class="sol-card glass-card reveal-child" role="listitem" aria-labelledby="sol2-title">
+      <div class="sol-badge" style="--badge:#60a5fa22; --icon:#60a5fa" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 10 5 15a7 7 0 0014 0C19 10 12 2 12 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 15v-4M10 13h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <img src="C:\Users\Kevin\.gemini\antigravity-ide\brain\cd981c36-462b-4290-a949-a32abad5f912\rift_valley_wheat_1791055752659.jpg" alt="Rift Valley wheat fields at sunset" class="sol-img" loading="lazy"/>
+      <h3 id="sol2-title" class="sol-title">Smart Irrigation Advice</h3>
+      <p class="sol-desc">AI-driven recommendations on exactly when and how much to water, calibrated to your soil type, crop stage, and the upcoming forecast — saving water and protecting yields.</p>
+      <a href="#technology" class="sol-link" aria-label="Learn more about Smart Irrigation">Learn more →</a>
+    </article>
+
+    <article class="sol-card glass-card reveal-child" role="listitem" aria-labelledby="sol3-title">
+      <div class="sol-badge" style="--badge:#E8A33D22; --icon:#E8A33D" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <img src="C:\Users\Kevin\.gemini\antigravity-ide\brain\cd981c36-462b-4290-a949-a32abad5f912\kenyan_farmer_phone_1791055718610.jpg" alt="Kenyan farmer using smartphone in maize field" class="sol-img" loading="lazy"/>
+      <h3 id="sol3-title" class="sol-title">Yield Registry & Matching</h3>
+      <p class="sol-desc">Farmers register expected harvests before the season ends. Our marketplace automatically matches surviving yields to verified B2B buyers — supermarkets, hotels, processors and exporters.</p>
+      <a href="#buyers" class="sol-link" aria-label="Learn more about Yield Registry">Learn more →</a>
+    </article>
+
+    <article class="sol-card glass-card reveal-child" role="listitem" aria-labelledby="sol4-title">
+      <div class="sol-badge" style="--badge:#A8D65C22; --icon:#A8D65C" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+      <img src="C:\Users\Kevin\.gemini\antigravity-ide\brain\cd981c36-462b-4290-a949-a32abad5f912\kenyan_market_produce_1791055765715.jpg" alt="Vibrant Kenyan open air market" class="sol-img" loading="lazy"/>
+      <h3 id="sol4-title" class="sol-title">Logistics & M-Pesa Payment</h3>
+      <p class="sol-desc">Book trucks, track deliveries, and receive M-Pesa payment automatically released on confirmed delivery — zero cash handling, zero delayed payments.</p>
+      <a href="#buyers" class="sol-link" aria-label="Learn more about Logistics and M-Pesa">Learn more →</a>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ DASHBOARD PREVIEW ═══ -->
+<section id="technology" class="dashboard-section reveal-section" aria-labelledby="tech-heading">
+  <div class="section-label">OUR TECHNOLOGY</div>
+  <div class="dashboard-header">
+    <div class="dashboard-title-col">
+      <h2 id="tech-heading" class="section-title">Data. AI. IoT.<br/><em>Better Together.</em></h2>
+      <p class="section-subtitle">We combine satellite imagery, IoT sensors and AI models to give farmers actionable intelligence — not just raw data.</p>
+      <ul class="tech-checklist" role="list">
+        <li><span class="check-icon" aria-hidden="true">✓</span> Real-time field monitoring via satellite</li>
+        <li><span class="check-icon" aria-hidden="true">✓</span> AI-powered irrigation recommendations</li>
+        <li><span class="check-icon" aria-hidden="true">✓</span> NDVI crop health scoring</li>
+        <li><span class="check-icon" aria-hidden="true">✓</span> SMS, USSD & WhatsApp alerts in Swahili</li>
+      </ul>
+      <a href="#cta" class="btn-primary">Join the Pilot →</a>
+    </div>
+
+    <!-- Dashboard UI mockup -->
+    <div class="dashboard-mockup glass-card" role="img" aria-label="Farm dashboard interface preview">
+      <div class="dash-top-bar">
+        <span class="dash-logo-sm" aria-hidden="true">🌿 ShambaPoint</span>
+        <span class="dash-title">Farm Overview — Kirinyaga County</span>
+        <span class="dash-date">Oct 2026</span>
+      </div>
+      <div class="dash-metrics">
+        <div class="dash-metric">
+          <div class="dash-metric-label">Total Plots</div>
+          <div class="dash-metric-val">8</div>
+        </div>
+        <div class="dash-metric">
+          <div class="dash-metric-label">Yield Prediction</div>
+          <div class="dash-metric-val">4.2 <span>t/ha</span></div>
+          <div class="dash-metric-sub" style="color:#A8D65C">▲ 12% vs last season</div>
+        </div>
+        <div class="dash-metric">
+          <div class="dash-metric-label">Field Health</div>
+          <div class="dash-metric-val donut-wrap">
+            <canvas id="health-donut" width="64" height="64" aria-label="Field health score 82 percent"></canvas>
+            <span class="donut-label">82%</span>
+          </div>
+        </div>
+        <div class="dash-metric">
+          <div class="dash-metric-label">Active Crops</div>
+          <div class="dash-metric-val">5</div>
+        </div>
+      </div>
+
+      <!-- NDVI field map -->
+      <div class="ndvi-map-container">
+        <canvas id="ndvi-canvas" aria-label="NDVI field health map showing crop conditions by plot"></canvas>
+        <div class="ndvi-legend" aria-label="NDVI colour scale">
+          <span style="--c:#1a4a1a">Low</span>
+          <span style="--c:#3a7a2a">Med</span>
+          <span style="--c:#6abf40">Good</span>
+          <span style="--c:#A8D65C">High</span>
+        </div>
+        <div class="ndvi-pins" aria-hidden="true">
+          <div class="ndvi-pin" style="left:30%;top:40%">Plot A1</div>
+          <div class="ndvi-pin" style="left:60%;top:28%">Plot B2</div>
+          <div class="ndvi-pin risk-pin" style="left:50%;top:62%">Risk ⚠</div>
+        </div>
+      </div>
+
+      <!-- Activity feed & weather -->
+      <div class="dash-bottom-row">
+        <div class="recent-activity">
+          <div class="ra-title">Recent Activity</div>
+          <div class="ra-item"><span class="ra-dot" style="background:#A8D65C"></span><span>Irrigation completed — Plot A1</span><span class="ra-time">2h ago</span></div>
+          <div class="ra-item"><span class="ra-dot" style="background:#E8A33D"></span><span>Dry-spell alert issued — Kitui</span><span class="ra-time">5h ago</span></div>
+          <div class="ra-item"><span class="ra-dot" style="background:#60a5fa"></span><span>Buyer matched — 3.2 t Maize</span><span class="ra-time">1d ago</span></div>
+          <div class="ra-item"><span class="ra-dot" style="background:#A8D65C"></span><span>M-Pesa payment confirmed</span><span class="ra-time">2d ago</span></div>
+        </div>
+        <div class="dash-weather glass-card">
+          <div class="dw-title">Weather · Nakuru</div>
+          <div class="dw-temp">23°C <span>Partly Cloudy</span></div>
+          <div class="dw-row"><span>Wind</span><span>14 km/h</span></div>
+          <div class="dw-row"><span>Humidity</span><span>64%</span></div>
+          <div class="dw-row"><span>Rainfall</span><span>2 mm</span></div>
+          <a href="#technology" class="view-all" style="margin-top:0.5rem;display:block">View Details →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ BUYER MARKETPLACE ═══ -->
+<section id="buyers" class="marketplace-section reveal-section" aria-labelledby="buyers-heading">
+  <div class="section-label">BUYER MARKETPLACE</div>
+  <div class="marketplace-header">
+    <h2 id="buyers-heading" class="section-title">Kenya's Freshest Produce,<br/><em>Direct from the Farm</em></h2>
+    <p class="section-subtitle">Verified farmers list confirmed harvests. Buyers get quality grades, quantities, county origin and transparent pricing — all in one place.</p>
+    <div class="carousel-controls" aria-label="Carousel controls">
+      <button class="carousel-btn" id="carousel-prev" aria-label="Previous products">←</button>
+      <button class="carousel-btn" id="carousel-next" aria-label="Next products">→</button>
+    </div>
+  </div>
+
+  <div class="produce-carousel-wrap">
+    <div class="produce-carousel" id="produce-carousel" role="list">
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod1-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🌽</div>
+        <h3 id="prod1-name" class="produce-name">Maize</h3>
+        <div class="produce-county">📍 Uasin Gishu County</div>
+        <div class="produce-qty">Available: <strong>42 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>38</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Maize quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod2-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🌾</div>
+        <h3 id="prod2-name" class="produce-name">Wheat</h3>
+        <div class="produce-county">📍 Nakuru County</div>
+        <div class="produce-qty">Available: <strong>28 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>52</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Wheat quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod3-name">
+        <div class="produce-badge grade-b">Grade B</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🥔</div>
+        <h3 id="prod3-name" class="produce-name">Irish Potatoes</h3>
+        <div class="produce-county">📍 Nyandarua County</div>
+        <div class="produce-qty">Available: <strong>18 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>45</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Irish Potatoes quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod4-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🍅</div>
+        <h3 id="prod4-name" class="produce-name">Tomatoes</h3>
+        <div class="produce-county">📍 Kirinyaga County</div>
+        <div class="produce-qty">Available: <strong>9 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>85</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Tomatoes quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod5-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🧅</div>
+        <h3 id="prod5-name" class="produce-name">Onions</h3>
+        <div class="produce-county">📍 Kajiado County</div>
+        <div class="produce-qty">Available: <strong>14 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>62</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Onions quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod6-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🥬</div>
+        <h3 id="prod6-name" class="produce-name">Sukuma Wiki</h3>
+        <div class="produce-county">📍 Meru County</div>
+        <div class="produce-qty">Available: <strong>6 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>28</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Sukuma Wiki quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod7-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🥑</div>
+        <h3 id="prod7-name" class="produce-name">Avocados</h3>
+        <div class="produce-county">📍 Murang'a County</div>
+        <div class="produce-qty">Available: <strong>22 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>95</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Avocados quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod8-name">
+        <div class="produce-badge grade-b">Grade B</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🫘</div>
+        <h3 id="prod8-name" class="produce-name">Dry Beans</h3>
+        <div class="produce-county">📍 Machakos County</div>
+        <div class="produce-qty">Available: <strong>11 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>120</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Dry Beans quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod9-name">
+        <div class="produce-badge grade-a">Grade A</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">🍃</div>
+        <h3 id="prod9-name" class="produce-name">Tea (Made)</h3>
+        <div class="produce-county">📍 Kericho County</div>
+        <div class="produce-qty">Available: <strong>5 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>220</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Tea quote">Request Quote</button>
+      </article>
+
+      <article class="produce-card glass-card" role="listitem" aria-labelledby="prod10-name">
+        <div class="produce-badge grade-a">Grade AA</div>
+        <div class="produce-emoji" aria-hidden="true" role="img">☕</div>
+        <h3 id="prod10-name" class="produce-name">Coffee (AA)</h3>
+        <div class="produce-county">📍 Nyeri County</div>
+        <div class="produce-qty">Available: <strong>3.5 tonnes</strong></div>
+        <div class="produce-price">KSh <strong>480</strong>/kg</div>
+        <button class="btn-primary produce-btn" aria-label="Request Coffee quote">Request Quote</button>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="marketplace-cta">
+    <p>Registered buyers get real-time notifications when new yields are confirmed.</p>
+    <a href="#cta" class="btn-secondary">Register as a Buyer →</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ REACH EVERYONE ═══════ -->
+<section id="reach" class="reach-section reveal-section" aria-labelledby="reach-heading">
+  <div class="section-label">ACCESS FOR ALL</div>
+  <div class="reach-content">
+    <div class="reach-text">
+      <h2 id="reach-heading" class="section-title">No smartphone<br/><em>needed.</em></h2>
+      <p class="section-subtitle">Every Kenyan farmer deserves access to climate intelligence — regardless of their device. ShambaPoint speaks SMS, USSD and WhatsApp, in Kiswahili and English.</p>
+      <div class="reach-channels">
+        <div class="channel-item">
+          <div class="channel-icon" style="--ic:#A8D65C" aria-hidden="true">📱</div>
+          <div>
+            <strong>SMS Alerts</strong>
+            <p>Weather warnings, irrigation prompts and payment confirmations — to any feature phone.</p>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="--ic:#E8A33D" aria-hidden="true">📟</div>
+          <div>
+            <strong>USSD Menu</strong>
+            <p>Dial <code>*483*12#</code> (placeholder) to check your farm dashboard — no internet needed.</p>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="--ic:#25D366" aria-hidden="true">💬</div>
+          <div>
+            <strong>WhatsApp</strong>
+            <p>Chat with your farm assistant in Kiswahili. Receive alerts with images, charts and audio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reach-phones" aria-label="Phone screen mockups showing SMS, USSD, and WhatsApp alerts">
+      <!-- SMS phone -->
+      <div class="phone-mockup phone-sms" aria-label="SMS alert mockup">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <span class="phone-signal" aria-hidden="true">●●●</span>
+            <span>10:32</span>
+            <span aria-hidden="true">🔋</span>
+          </div>
+          <div class="phone-app-title">Ujumbe (1)</div>
+          <div class="sms-bubble">
+            <strong>SHAMBAPOINT:</strong><br/>
+            Tahadhari — ukame unatarajiwa katika eneo lako kwa siku 5 zijazo. Mwagilia mazao yako mara moja. Maji ya ziada: lita 120 kwa ekari.<br/>
+            <span class="sms-time">10:32 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- USSD phone -->
+      <div class="phone-mockup phone-ussd" aria-label="USSD menu mockup">
+        <div class="phone-screen ussd-screen">
+          <div class="ussd-title">ShambaPoint *483*12#</div>
+          <div class="ussd-body">
+            Karibu ShambaPoint<br/>
+            Chagua huduma:<br/><br/>
+            1. Hali ya Hewa<br/>
+            2. Ushauri wa Umwagiliaji<br/>
+            3. Orodha ya Mavuno<br/>
+            4. Malipo ya M-Pesa<br/>
+            5. Msaada<br/><br/>
+            Jibu na nambari:
+          </div>
+          <div class="ussd-input">█</div>
+        </div>
+      </div>
+
+      <!-- WhatsApp phone -->
+      <div class="phone-mockup phone-wa" aria-label="WhatsApp message mockup">
+        <div class="phone-screen">
+          <div class="phone-header wa-header">
+            <span>← ShambaPoint 🌿</span>
+            <span style="color:#25D366">●</span>
+          </div>
+          <div class="wa-msg received">
+            Habari Mkulima Wanjiru 👋<br/>
+            Shamba lako la Nyeri lina afya nzuri (82%). Mvua inatarajiwa Alhamisi. Hatua: subiri kumwagilia hadi Ijumaa.<br/>
+            <span class="sms-time">✓✓ 09:15</span>
+          </div>
+          <div class="wa-msg sent">
+            Asante! Bei ya nyanya iko ngapi leo?
+            <span class="sms-time">09:17 ✓✓</span>
+          </div>
+          <div class="wa-msg received">
+            Nyanya: KSh 85/kg (Kirimara). Mnunuzi anasubiri tani 5. Ungependa nakuunganishe?
+            <span class="sms-time">09:18 ✓✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ TRUST STRIP ═══════ -->
+<section id="trust" class="trust-section reveal-section" aria-labelledby="trust-heading">
+  <h2 id="trust-heading" class="sr-only">Trust and Compliance</h2>
+  <div class="trust-strip">
+    <div class="trust-tile" aria-label="M-Pesa escrow payment">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#A8D65C" stroke-width="1.5"/><path d="M2 10h20" stroke="#A8D65C" stroke-width="1.5"/><circle cx="7" cy="15" r="1.5" fill="#A8D65C"/></svg>
+      </div>
+      <strong>M-Pesa Escrow</strong>
+      <p>Payment held securely and released only on confirmed delivery — no advance cash needed.</p>
+    </div>
+    <div class="trust-tile" aria-label="Verified farmers">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#A8D65C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12c0 1.657-4.03 9-9 9S3 13.657 3 12 7.03 3 12 3s9 4.343 9 9z" stroke="#A8D65C" stroke-width="1.5"/></svg>
+      </div>
+      <strong>Verified Farmers</strong>
+      <p>Every farmer on the platform is KYC-verified against their national ID and farm location.</p>
+    </div>
+    <div class="trust-tile" aria-label="Data protection">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#A8D65C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <strong>Kenya Data Protection Act</strong>
+      <p>All farmer and buyer data is protected under the Kenya Data Protection Act 2019. Your data is yours.</p>
+    </div>
+    <div class="trust-tile" aria-label="Forecast transparency">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#E8A33D" stroke-width="1.5"/><path d="M12 7v6l4 2" stroke="#E8A33D" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <strong>Forecasts Show Uncertainty</strong>
+      <p>All predictions come with confidence ranges. We never oversell certainty — weather is hard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ PARTNERS ═══════════ -->
+<section id="partners" class="partners-section reveal-section" aria-labelledby="partners-heading">
+  <div class="section-label">PARTNERS</div>
+  <h2 id="partners-heading" class="section-title" style="text-align:center">Partners <em>(to be confirmed)</em></h2>
+  <p class="section-subtitle" style="text-align:center;max-width:560px;margin:0 auto 3rem">We are in active conversations with county governments, agri-finance institutions and development organisations. Partnership slots below are placeholders — no formal relationship yet exists.</p>
+  <div class="partners-row" role="list" aria-label="Partnership placeholder slots">
+    <div class="partner-slot glass-card" role="listitem" aria-label="Partner slot 1 to be confirmed">
+      <div class="partner-placeholder">
+        <div class="pp-icon" aria-hidden="true">🏛️</div>
+        <span>County Government<br/>Partner (TBC)</span>
+      </div>
+    </div>
+    <div class="partner-slot glass-card" role="listitem" aria-label="Partner slot 2 to be confirmed">
+      <div class="partner-placeholder">
+        <div class="pp-icon" aria-hidden="true">🏦</div>
+        <span>Agri-Finance<br/>Partner (TBC)</span>
+      </div>
+    </div>
+    <div class="partner-slot glass-card" role="listitem" aria-label="Partner slot 3 to be confirmed">
+      <div class="partner-placeholder">
+        <div class="pp-icon" aria-hidden="true">🌍</div>
+        <span>Development<br/>Partner (TBC)</span>
+      </div>
+    </div>
+    <div class="partner-slot glass-card" role="listitem" aria-label="Partner slot 4 to be confirmed">
+      <div class="partner-placeholder">
+        <div class="pp-icon" aria-hidden="true">📡</div>
+        <span>Tech / Telco<br/>Partner (TBC)</span>
+      </div>
+    </div>
+    <div class="partner-slot glass-card" role="listitem" aria-label="Partner slot 5 to be confirmed">
+      <div class="partner-placeholder">
+        <div class="pp-icon" aria-hidden="true">🚛</div>
+        <span>Logistics<br/>Partner (TBC)</span>
+      </div>
+    </div>
+  </div>
+  <p class="partners-note" aria-live="polite">Interested in partnering? <a href="#cta">Get in touch →</a></p>
+</section>
+
+<!-- ══════════════════════════════════════════ SECTION DIVIDER ══ -->
+<div class="kitenge-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════ CLOSING CTA ═══════ -->
+<section id="cta" class="cta-section" aria-labelledby="cta-heading">
+  <div class="cta-bg">
+    <img src="C:\Users\Kevin\.gemini\antigravity-ide\brain\cd981c36-462b-4290-a949-a32abad5f912\kericho_tea_hero_1791055704805.jpg" alt="" aria-hidden="true" class="cta-bg-img" loading="lazy"/>
+    <div class="cta-overlay" aria-hidden="true"></div>
+  </div>
+  <div class="cta-content">
+    <div class="section-label" style="color:#A8D65C88">JOIN THE PILOT</div>
+    <h2 id="cta-heading" class="cta-headline">
+      Be among the first<br/>
+      <em>farmers and buyers</em><br/>
+      to shape Kenya's<br/>
+      climate-smart future.
+    </h2>
+    <p class="cta-sub">Pilot participants get early access, direct support, and input into the product roadmap. Applications close when pilot capacity is filled.</p>
+
+    <div class="cta-forms">
+      <!-- Farmer form -->
+      <div class="cta-form glass-card" aria-labelledby="farmer-form-heading">
+        <div class="form-badge farmer-badge" aria-hidden="true">🌱</div>
+        <h3 id="farmer-form-heading">I am a Farmer</h3>
+        <p>Register your farm and get early access to climate forecasts and buyer matching.</p>
+        <form id="farmer-form" novalidate aria-label="Farmer registration form">
+          <label for="farmer-name">Full Name</label>
+          <input type="text" id="farmer-name" name="farmer-name" placeholder="e.g. Wanjiru Kamau" required autocomplete="name"/>
+          <label for="farmer-phone">M-Pesa Number</label>
+          <input type="tel" id="farmer-phone" name="farmer-phone" placeholder="+254 7XX XXX XXX" required autocomplete="tel"/>
+          <label for="farmer-county">County</label>
+          <select id="farmer-county" name="farmer-county" required>
+            <option value="">Select your county…</option>
+            <option>Nairobi</option><option>Nakuru</option><option>Uasin Gishu</option>
+            <option>Trans Nzoia</option><option>Meru</option><option>Nyeri</option>
+            <option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option>
+            <option>Machakos</option><option>Makueni</option><option>Kitui</option>
+            <option>Garissa</option><option>Kisumu</option><option>Kericho</option>
+            <option>Bomet</option><option>Nyandarua</option><option>Laikipia</option>
+            <option>Kajiado</option><option>Other</option>
+          </select>
+          <label for="farmer-crop">Primary Crop</label>
+          <input type="text" id="farmer-crop" name="farmer-crop" placeholder="e.g. Maize, Tea, Tomatoes"/>
+          <button type="submit" class="btn-primary form-submit" id="farmer-submit-btn">Apply as Farmer →</button>
+        </form>
+      </div>
+
+      <!-- Buyer form -->
+      <div class="cta-form glass-card" aria-labelledby="buyer-form-heading">
+        <div class="form-badge buyer-badge" aria-hidden="true">🏪</div>
+        <h3 id="buyer-form-heading">I am a Buyer</h3>
+        <p>Access verified farm yields, transparent pricing, and M-Pesa-secured logistics.</p>
+        <form id="buyer-form" novalidate aria-label="Buyer registration form">
+          <label for="buyer-org">Organisation Name</label>
+          <input type="text" id="buyer-org" name="buyer-org" placeholder="e.g. Naivas Supermarkets Ltd" required/>
+          <label for="buyer-name">Contact Person</label>
+          <input type="text" id="buyer-name" name="buyer-name" placeholder="Full name" required autocomplete="name"/>
+          <label for="buyer-email">Work Email</label>
+          <input type="email" id="buyer-email" name="buyer-email" placeholder="you@company.co.ke" required autocomplete="email"/>
+          <label for="buyer-type">Buyer Type</label>
+          <select id="buyer-type" name="buyer-type" required>
+            <option value="">Select type…</option>
+            <option>Supermarket / Retail Chain</option>
+            <option>Hotel / Restaurant</option>
+            <option>Food Processor</option>
+            <option>Exporter</option>
+            <option>Wholesaler</option>
+            <option>Other</option>
+          </select>
+          <label for="buyer-produce">Produce of Interest</label>
+          <input type="text" id="buyer-produce" name="buyer-produce" placeholder="e.g. Maize, Avocados, Coffee"/>
+          <button type="submit" class="btn-primary form-submit" id="buyer-submit-btn">Apply as Buyer →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══════════ -->
+<footer id="about" class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="footer-ke-accent" aria-hidden="true">
+    <div class="ke-stripe ke-black"></div>
+    <div class="ke-stripe ke-red"></div>
+    <div class="ke-stripe ke-green"></div>
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo footer-logo" aria-label="ShambaPoint Climate home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="17" stroke="#A8D65C" stroke-width="1.5"/>
+            <path d="M10 26 C10 20 14 16 18 14 C22 12 26 13 28 16" stroke="#A8D65C" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 14 L18 26" stroke="#A8D65C" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="18" cy="14" r="2.5" fill="#A8D65C"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">ShambaPoint</span>
+          <span class="logo-tag">Climate</span>
+        </div>
+      </a>
+      <p class="footer-tagline">AI-powered climate-resilient agricultural logistics for Kenya's farmers and buyers.</p>
+      <div class="footer-contact">
+        <div class="fc-item"><span aria-hidden="true">📞</span> USSD: <code>*483*12#</code> <em>(placeholder)</em></div>
+        <div class="fc-item"><span aria-hidden="true">💬</span> WhatsApp: <code>+254 700 000 000</code> <em>(placeholder)</em></div>
+        <div class="fc-item"><span aria-hidden="true">✉️</span> <a href="mailto:support@shambapoint.co.ke">support@shambapoint.co.ke</a></div>
+      </div>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>Platform</h4>
+      <ul role="list">
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#buyers">Buyer Marketplace</a></li>
+        <li><a href="#cta">Join the Pilot</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>Company</h4>
+      <ul role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#trust">Trust & Safety</a></li>
+        <li><a href="mailto:support@shambapoint.co.ke">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-coverage">
+      <h4>County Coverage</h4>
+      <div class="county-list" aria-label="Counties currently covered">
+        <span>Nairobi</span><span>Nakuru</span><span>Uasin Gishu</span>
+        <span>Meru</span><span>Nyeri</span><span>Kirinyaga</span>
+        <span>Murang'a</span><span>Kiambu</span><span>Machakos</span>
+        <span>Makueni</span><span>Kitui</span><span>Garissa</span>
+        <span>Kisumu</span><span>Kericho</span><span>Bomet</span>
+        <span>Nyandarua</span><span>Laikipia</span><span>Kajiado</span>
+        <span class="more-counties">+ more coming</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 ShambaPoint Climate. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Data Protection Notice</a>
+    </div>
+    <p class="footer-disclaimer">All metrics shown are sample / modelled estimates for demonstration purposes only.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
