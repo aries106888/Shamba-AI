@@ -1,0 +1,14 @@
+{
+  "name": "shambapoint-climate",
+  "version": "1.0.0",
+  "description": "AI Climate-Resilient Agricultural Logistics Platform for Kenya",
+  "private": true,
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File ./start.ps1",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "db:init": "node backend/db/init.js",
+    "db:seed": "node backend/db/seed.js",
+    "db:reset": "node backend/db/init.js && node backend/db/seed.js"
+  }
+}
